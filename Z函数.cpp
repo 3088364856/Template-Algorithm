@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 
-std::function<std::vector<int>(std::string s)> Z = [&](std::string s){
+std::function<std::vector<int>(std::string s)> Z = [](std::string s){
 	int n = (int)s.size();
 	std::vector<int> z(n,0);
 	for(int i = 1, l = 0, r = 0; i < n; ++i){
