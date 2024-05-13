@@ -17,7 +17,7 @@ public:
 		v.assign(N,std::vector<int>());
 	}
 	
-	void sp_assign(int N){
+	void assign(int N){
 		fa.assign(N,0);
 		siz.assign(N,0);
 		son.assign(N,0);
@@ -25,7 +25,12 @@ public:
 		deep.assign(N,0);
 		v.assign(N,std::vector<int>());
 	}
-	
+
+	void add(int x, int y){
+		v[x].push_back(y);
+		v[y].push_back(x);
+	}
+
 	void dfs1(int x, int f){
 		deep[x] = deep[f] + 1;
 		fa[x] = f;
@@ -56,8 +61,7 @@ public:
 	}
 };
 
-
-const int N = 5e5+5;
+const int N = 3e5+5;
 int deep[N];
 std::vector<int> fa(N), siz(N), son(N),top(N);
 std::vector<std::vector<int>> v(N);
@@ -65,7 +69,6 @@ int n,m,q;
 sp f;
 int main(){
 	std::ios::sync_with_stdio(false);std::cin.tie(0);std::cout.tie(0);
-	
 	
 	std::function<void(int,int)> dfs1 = [&](int x, int f){
 		deep[x] = deep[f] + 1;
@@ -93,8 +96,6 @@ int main(){
 		}
 		return deep[x] < deep[y] ? x : y;
 	};	
-	
-	
 	
 	std::cin >> n >> q >> m;
 	for(int i = 0; i < n-1; ++i){
