@@ -17,7 +17,7 @@ public:
 		v.assign(N,std::vector<int>());
 	}
 	
-	void assign(int N){
+	void assign(int N){	++N;
 		fa.assign(N,0);
 		siz.assign(N,0);
 		son.assign(N,0);
@@ -61,6 +61,7 @@ public:
 	}
 };
 
+
 const int N = 3e5+5;
 int deep[N];
 std::vector<int> fa(N), siz(N), son(N),top(N);
@@ -96,6 +97,7 @@ int main(){
 		}
 		return deep[x] < deep[y] ? x : y;
 	};	
+	
 	
 	std::cin >> n >> q >> m;
 	for(int i = 0; i < n-1; ++i){
